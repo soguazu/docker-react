@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: . # if your react app was nested inside another folder u put the folder name e.g client
+      dockerfile: Dockerfile.dev
+    ports:
+      - '5000:3000'
+    volumes:
+      - /app/node_modules
+      - .:/app
+  test:
+    build:
+      context: . # if your react app was nested inside another folder u put the folder name e.g client
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ['yarn', 'test']

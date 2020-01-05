@@ -7,4 +7,4 @@ before_install:
   - docker build -t dearests/docker-react  -f Dockerfile.dev .
 
 script:
-  - docker run dearests/docker-react yarn test -- --coverage
+  - docker run dearests/docker-react npm run test -- --coverage
